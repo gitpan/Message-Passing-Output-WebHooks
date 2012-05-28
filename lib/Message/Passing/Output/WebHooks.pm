@@ -11,7 +11,7 @@ use aliased 'Message::Passing::WebHooks::Event::Call::Failure';
 use aliased 'Message::Passing::WebHooks::Event::Bad';
 use namespace::autoclean;
 
-our $VERSION = '0.002_01';
+our $VERSION = '0.003';
 $VERSION = eval $VERSION;
 
 with 'Message::Passing::Role::Output',
@@ -102,11 +102,11 @@ sub consume {
 
 =head1 NAME
 
-Message::Passing::Output::WebHooks - call 'WebHooks' with logstash messages.
+Message::Passing::Output::WebHooks - call 'WebHooks' with messages.
 
 =head1 SYNOPSIS
 
-    logstash --input STDIN --output WebHooks
+    message-pass --input STDIN --output WebHooks
 
     You type:
     {"url": "http://localhost:5000/test","@type":"WebHooks","data":{"foo":"bar"}}
@@ -158,7 +158,7 @@ L<Log::Dispatch> framework.
 
 If you're not already an L<AnyEvent> perl app (most people!), then you can use
 L<Message::Passing::Input::STDIN>, L<Message::Passing::Input::ZeroMQ>
-or any other input class, and the command line logstash utility supplied to run a worker
+or any other input class, and the command line message-pass utility supplied to run a worker
 process, then send messages to it.
 
 To send messages, you can either use Java or Ruby logstash L<http://logstash.net/>, or
