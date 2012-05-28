@@ -11,7 +11,7 @@ use aliased 'Message::Passing::WebHooks::Event::Call::Failure';
 use aliased 'Message::Passing::WebHooks::Event::Bad';
 use namespace::autoclean;
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
 $VERSION = eval $VERSION;
 
 with 'Message::Passing::Role::Output',
@@ -106,7 +106,7 @@ Message::Passing::Output::WebHooks - call 'WebHooks' with messages.
 
 =head1 SYNOPSIS
 
-    message-pass --input STDIN --output WebHooks
+    message-pass_webhooks --input STDIN
 
     You type:
     {"url": "http://localhost:5000/test","@type":"WebHooks","data":{"foo":"bar"}}
