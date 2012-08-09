@@ -12,11 +12,11 @@ use aliased 'Message::Passing::WebHooks::Event::Bad';
 use JSON qw/ encode_json /;
 use namespace::autoclean;
 
-our $VERSION = '0.005';
+our $VERSION = '0.006';
 $VERSION = eval $VERSION;
 
 with 'Message::Passing::Role::Output',
-    'Message::Passing::Role::CLIComponent' => { name => 'log', default => 'Message::Passing::Output::Null' };
+    'Message::Passing::Role::CLIComponent' => { name => 'log', default => 'Null' };
 
 sub BUILD {
     my $self = shift;
@@ -135,7 +135,7 @@ The idea is that you (as a client) define a URI on your website which is called 
 happens at your API provider. Some data relevant to the event is serialized out to you, allowing you
 to take action.
 
-The canonical example is Paypal's IPN system, in which Paypal make a call to your online payment system to
+The canonical example is PayPal's IPN system, in which PayPal make a call to your online payment system to
 verify that a payment has been made.
 
 =head1 DESCRIPTION
@@ -144,7 +144,7 @@ This class expects to have it's consume method called with a has of parameters, 
 
 =over
 
-=item @url
+=item url
 
 The URL to make the request to.
 
@@ -184,7 +184,7 @@ Events that can be logged are:
 
 =head2 L<Message::Passing::WebHooks::Event::Bad>.
 
-The message received was missing either a C< @url > or a C< data >
+The message received was missing either a C< url > or a C< data >
 field, meaning it could not be used for a HTTP request.
 
 =head2 L<Message::Passing::WebHooks::Event::Call::Success>.
