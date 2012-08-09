@@ -33,5 +33,5 @@ requires:
   namespace::autoclean: 0
 resources:
   repository: git://github.com/suretec/Message-Passing-Output-WebHooks.git
-version: 0.006
+version: 0.007
 x_authority: GHENRY
